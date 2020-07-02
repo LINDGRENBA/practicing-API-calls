@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     fetch(`https://dog.ceo/api/breeds/image/random`) //fetch is a shortcut; it creates a promise object that executes a GET API request on the url fed into it.
       .then(function(responseJSON) {
-        if (!response.ok) {
+        if (!response.ok) { //in apart version, this needs to be (!responseJSON.ok) or it doesn't work
           throw Error(responseJSON.statusText); //if response is woops, pass an error status down to catch and catch will do something with it
         }
         return responseJSON.json(); //if response is good, pass the response down to the next .then and .then will do something with it
